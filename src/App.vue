@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <h1>{{ msg }}</h1>
-    <button @click="addNew" type="submit" class="btn btn-success">add new</button>
-    <hello :datas="datas" @submit='addNew'></hello>
+    <button @click="update" class="btn btn-success">add new</button>
+    <hello :datas="datas"></hello>
     <div class="mask" :class="{addnew: isAddNew}">
       <div class="container">
         <form class="form-horizontal" role="form" @submit.prevent="submit">
@@ -39,12 +39,21 @@ export default {
   methods: {
     addNew () {
       this.isAddNew = true
-      console.log('add new item')
     },
     submit () {
       this.isAddNew = false
       this.datas.push(this.newItem)
       this.newItem = ''
+    },
+    update () {
+      console.log('update new item')
+      var self = this
+      setTimeout(function () {
+        self.datas.push('add new automatic')
+        // self.$nextTick(function () {
+        //   console.log(JSON.stringify(self.datas))
+        // })
+      }, 3000)
     }
   },
   components: {

@@ -15,12 +15,8 @@
 <script>
 export default {
   name: 'hello',
-  props: ['datas'],
-  methods: {
-    submit () {
-      this.$emit('submit')
-    }
-  }
+  props: ['datas']
+
 }
 </script>
 
